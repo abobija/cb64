@@ -139,9 +139,8 @@ unsigned char* b64_decode(const unsigned char *src, size_t len, size_t *out_len)
 		}
 	}
 
-    if(out_len != NULL) {
+    if(out_len)
 	    *out_len = pos - out;
-    }
-    
+
 	return out;
 }
