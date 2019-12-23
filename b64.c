@@ -6,7 +6,7 @@ static const unsigned char base64_table[65] =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 /**
- * base64_encode - Base64 encode
+ * b64_encode - Base64 encode
  * @src: Data to be encoded
  * @len: Length of the data to be encoded
  * @out_len: Pointer to output length variable, or %NULL if not used
@@ -75,7 +75,7 @@ unsigned char* b64_encode(const unsigned char *src, size_t len, size_t *out_len)
 
 
 /**
- * base64_decode - Base64 decode
+ * b64_decode - Base64 decode
  * @src: Data to be decoded
  * @len: Length of the data to be decoded
  * @out_len: Pointer to output length variable, or %NULL if not used
