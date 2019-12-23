@@ -1,6 +1,10 @@
 # esp-idf-b64
 C library for Base64 encoding/decoding, packaged as ESP-IDF component
 
+## How to use
+
+This directory is an ESP-IDF component. Clone it (or add it as submodule) into `components` directory of the project.
+
 ## Example
 
 Encoding
