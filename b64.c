@@ -139,8 +139,21 @@ unsigned char* b64_decode(const unsigned char *src, size_t len, size_t *out_len)
 		}
 	}
 	
+	size_t _out_len = pos - out;
+
 	if(out_len)
-		*out_len = pos - out;
+		*out_len = _out_len;
 	
+	// Sometimes _out_len is different than strlen(out)
+	// let's apply this dirty hack to fix that
+
+	if(_out_len != strlen((const char*) out)) {
+		unsigned char* outnew = malloc(_out_len + 1);
+		memcpy(outnew, out, _out_len);
+		outnew[_out_len] = '\0';
+		free(out);
+		out = outnew;
+	}
+
 	return out;
 }
