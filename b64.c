@@ -149,12 +149,14 @@ unsigned char* b64_decode(const unsigned char *src, size_t len, size_t *out_len)
 	// let's apply this dirty hack to fix output length
 
 	if(_out_len != strlen((const char*) out)) {
-		unsigned char* newout = realloc(out, _out_len);
+		unsigned char* newout = realloc(out, _out_len + 1);
 
 		if(newout) {
+			newout[_out_len] = '\0';
 			out = newout;
 		} else {
 			free(out);
+			out = NULL;
 		}
 	}
 
